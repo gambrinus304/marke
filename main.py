@@ -5,8 +5,23 @@ friends = [
 
 
 def print_age(age):
-    print("Poehali!")
-    print(friends[1]['age'])
+    print(str(friends[0]['name']) + " age is " + str(friends[0]['age']))
+    print(str(friends[1]['name']) + " age is " + str(friends[1]['age']))
+    print(str(friends[2]['name']) + " age is " + str(friends[2]['age']))
 
 
 print_age("age")
+print("Friends list:")
+
+a = 10
+while a <= 40:
+    if a == 23:
+        print("It's " + str(friends[0]['name']) + " :)")
+    elif a == 19:
+        print("It's " + str(friends[1]['name']) + " :)")
+    elif a == 32:
+        print("It's " + str(friends[2]['name']) + " :)")
+    else:
+        print("A " + str(a) + " year old friend not found :(")
+
+    a = a + 1
