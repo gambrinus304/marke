@@ -7,3 +7,6 @@ friends = [
 def print_age(age):
     print("Poehali!")
     print(friends[1]['age'])
+
+
+print_age("age")
