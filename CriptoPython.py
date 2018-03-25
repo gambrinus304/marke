@@ -24,3 +24,4 @@ for update in result:
     chat_id = update['message']['chat']['id']
     last_message = update['update_id']
     send_message(chat_id, 'test')
+# на данный момент это все, что получилось, к сожалению. Бот при запуске почему-то отсылает 5 сообщений - независимо от того, есть сообщения от пользователя или нет.
