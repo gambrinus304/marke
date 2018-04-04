@@ -22,12 +22,14 @@ class ProductListView(generic.ListView):
     context_object_name = 'products'
     model = Product
 
-    # метод для добавления дополнительной информации в контекст
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # передаем в словарь контекста список всех категорий
-        context['categories'] = Category.objects.all()
-        return context
+# метод для добавления дополнительной информации в контекст
+
+
+def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    # передаем в словарь контекста список всех категорий
+    context['categories'] = Category.objects.all()
+    return context
 
 
 class ProductDetail(generic.DetailView):

@@ -8,3 +8,7 @@ from .models import Category
 # говорим админке зарегистрировать наши модели
 admin.site.register(Product)
 admin.site.register(Category)
+
+
+def __str__(self):
+    return self.title

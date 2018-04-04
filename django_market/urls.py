@@ -24,6 +24,7 @@ from shop import views
 # а строчкой ниже, кстати ссылка на нашу админку, про нее позже
 urlpatterns = [
     path('', views.ProductListView.as_view(), name='index'),
-    path('<int:pk>/', views.ProductDetail.as_view(), name='detail'),
+    path('prod/<int:pk>/', views.ProductDetail.as_view(), name='detail'),
+    path('cat/<int:pk>/', views.ProductListView.as_view(), name='product'),
     path('admin/', admin.site.urls),
 ]
