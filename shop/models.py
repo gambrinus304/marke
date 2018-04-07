@@ -1,12 +1,11 @@
-# Импортируется родительский класс моделей
 from django.db import models
-
-# Создаем базовую модель нашего продукта
+# Импортируется родительский класс моделей
 
 
 class Product(models.Model):
-    # и указываем максимальную длину поля
+    # Создаем базовую модель нашего продукта
     title = models.CharField(max_length=200)
+    # и указываем максимальную длину поля
     description = models.TextField(max_length=5000, blank=True)
     category = models.ForeignKey(
         'Category', related_name="products", on_delete='CASCADE', null=True)

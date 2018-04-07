@@ -20,11 +20,11 @@ from django.urls import path
 # импортируем наш файл views из shop
 from shop import views
 
-# говорим Джанго о том, что хотим отображать наш вью на главной странице
-# а строчкой ниже, кстати ссылка на нашу админку, про нее позже
+
 urlpatterns = [
     path('', views.ProductListView.as_view(), name='index'),
     path('prod/<int:pk>/', views.ProductDetail.as_view(), name='detail'),
-    path('cat/<int:pk>/', views.ProductListView.as_view(), name='product'),
+    path('cat/', views.CategoryListView.as_view(), name='categories'),
+    path('catdel/<int:pk>/', views.CategoryDetail.as_view(), name='category'),
     path('admin/', admin.site.urls),
 ]
