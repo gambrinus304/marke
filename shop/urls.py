@@ -22,6 +22,8 @@ from django.urls import path, include
 from shop import views
 
 # попытка добавить регистрацию
+from django.conf.urls import include, path
+
 from django.contrib.auth.forms import UserCreationForm
 
 
