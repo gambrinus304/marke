@@ -9,6 +9,7 @@ from .models import Product, Category, Order
 from django.urls import reverse_lazy
 
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class ProductListView(generic.ListView):
@@ -59,7 +60,7 @@ class ProductCreate(generic.CreateView):
     model = Product
 
 
-class OrderFormView(generic.CreateView):
+class OrderFormView(LoginRequiredMixin, generic.CreateView):
     model = Order
     template_name = 'order_form.html'
     success_url = '/'
@@ -81,3 +82,14 @@ class SignUpView(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
+
+# наш секретный Вью
+
+
+class SecretAdminView(UserPassesTestMixin, generic.TemplateView):
+    # секретное содержимое
+    template_name = 'memes.html'
+
+    # проверяем условие, если пользователь — админ, то вернет True и пустит пользователя
+    def test_func(self):
+        return self.request.user.is_superuser

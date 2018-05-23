@@ -1,3 +1,12 @@
+{% if user.is_authenticated %}
+<p>Привет, {{ user.username }}!</p>
+<p>
+  <a href="{% url 'logout' %}">Выйти</a>
+</p>
+{% else %}
+<p>You are not logged in.</p>
+<a href="{% url 'login' %}">Войти</a>
+{% endif %}
 <h2>{{details.title}}</h2>
 <p>{{ details.description}}</p>
 <button>

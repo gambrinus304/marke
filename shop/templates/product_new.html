@@ -1,3 +1,12 @@
+{% if user.is_authenticated %}
+<p>Привет, {{ user.username }}!</p>
+<p>
+  <a href="{% url 'logout' %}">Выйти</a>
+</p>
+{% else %}
+<p>You are not logged in.</p>
+<a href="{% url 'login' %}">Войти</a>
+{% endif %}
 <h1>Создаем новый товар</h1>
 {# action — ссылка куда отправляется запрос, method - метод запроса #}
 <form action="" method="post" enctype="multipart/form-data">
